@@ -1,6 +1,10 @@
 <?php
 class Marker_model extends CI_Model {
 
+	//`id`,`time_created`,`lat`,`lng`,`icon`,`draggable`,`animation`,`onclick`,`link`,`user`,`title`,`content`,`fuente`,
+  
+
+
 	public function __construct()
 	{
 		$this->load->database();

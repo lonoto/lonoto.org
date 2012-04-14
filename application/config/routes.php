@@ -47,12 +47,20 @@ $route['marker'] = 'marker';
 $route['marker/add'] = 'marker/add';
 $route['marker/all'] = 'marker/all';
 
+$route['getter'] = 'getter';
+$route['getter/geturl'] = 'getter/geturl';
 
 $route['news/create'] = 'news/create';
 $route['news/(:any)'] = 'news/view/$1';
 $route['news'] = 'news';
 
-$route['(:any)'] = 'pages/view/$1';
-$route['default_controller'] = 'index';
+
+$route['admin'] = 'admin/index';
+$route['admin/login'] = 'admin/login';
+
+
+//$route['(:any)'] = 'pages/view/$1';
+
+$route['default_controller'] = 'admin';
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

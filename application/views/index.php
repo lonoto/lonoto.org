@@ -3,67 +3,114 @@
 <head>
 	<meta charset="utf-8">
 	<title>Welcome to CodeIgniter</title>
-
-	<style type="text/css">
-
-	</style>
-	<!--Needed for the map 	 -->
-<!-- 	<?php echo $map_data['js']; ?> -->
-	
-	<!-- 	Css -->
-	<link rel="stylesheet" type="text/css" href="css/main.css" />
-
-	<!-- Get google library API 	 -->
-	<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyDe_fp2YEScnQ-EA2VsmTMiYrcYfmjbk1k&sensor=false"></script>
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> -->
-	
-		<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
-  	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-
-	<!-- <script type="text/javascript" src="/js/jquery.watermark.min.js"></script> -->
-
-	
-    <script type="text/javascript" src="js/lonoto.js"></script>
-    <script type="text/javascript" src="js/map.js">	</script>
-	
-
+	<meta charset="utf-8" />
+	<?php	$this->load->view('libs'); ?>
 </head>
-<body onload="initialize()">
 
-<div id="container">
-	<h1>Welcome to Lonoto!</h1>
+<!-- body	 -->
+<body onload="initialize()">	
 	
-	<div id="form">
-		</div>
-		<div id="map_div">
-			<button id="button_save">Save marker</button>
-			<button id="button_load">Load marker</button>
-			
-			<div>
+	<div id="box">
+		<!-- header -->
+		<?php	$this->load->view('header'); ?>
+	
+		<!-- slider markup -->
+		<ul id="unoslider" class="unoslider">
+			<li><img src="img/menu/1.jpg" /></li>
+			<li><img src="img/menu/2.jpg" title="Image tooltip" /></li>
+		</ul> 
+		
+		<!-- <div id="unoslider"><ul id='unoslider' class='unoslider'> 
+		  		<li>
+					<div class='unoslider_caption'>you can use any html markup here</div> 
+					<img src='img/menu/corrupcion.jpg' />
+				</li> 
+		  		<li>
+					<div class='unoslider_caption'>you can use any html markup here</div>
+					<img src='img/menu/comparte.jpg' />
+				</li> 
+ 				<li>
+					<div class='unoslider_caption'>you can use any html markup here</div>
+					<a href='something'><a href='something'><img src='img/menu/publica.png' /></a>
+				</li> 
+				<li>
+					<div class='unoslider_caption'>you can use any html markup here</div> 
+					<a href='something'><img src='img/menu/todos.jpg' /></a>
+				</li> 
+				<li>
+					<div class='unoslider_caption'>you can use any html markup here</div> 
+					<a href='something'><img src='img/menu/dinero.jpg' /></a>
+				</li> 		
+				<li>
+					<div class='unoslider_caption'>you can use any html markup here</div> 
+					<a href='something'><img src='img/menu/comparte.jpg' /></a>
+				</li> 												
+		  		<li>
+					<div class='unoslider_caption'>you can use any html markup here</div> 
+					<a href='something'><a href='something'><img src='/path/to/image.gif' /></a>
+				</li>  -->
+			<!-- </ul> -->
+		<!-- </div>  -->
+		
+		
+		<!-- slider initializer -->
+		<script type='text/javascript'> 
+		  $(document).ready(function(){ 
+				$('#unoslider').unoslider({
+					width: 700,
+					height: 254
+				});
+		  }); 
+		</script>
+	
+			    
+		<div id="left_column">
+			<h1>¡Bienvenido a Lonoto.org!</h1>	 
+		
+			<div class="userinput">
 			    <label>Busca en el mapa </label>
 				<br>
 				<input class="watermark auto-focus" id="input_location" type="text" placeholder="Introduce una ciudad, una dirección...">
+				<br>
+				<br>
+
 			</div>
 			<div>
+				<label>Pon titulo a tu historia: </label>
+				<br>
+				<input class="watermark" id="input_title" type="text" placeholder="Ponle un titulo	">
+				<br>
 			    <label>Cuenta tu historia: </label>
 				<br>
 				<textarea class="watermark" id="input_story" type="text" placeholder="Introduce un link de una noticia, una historia personal...">
 				</textarea>	
 			</div>
-			<button id="button_add" onclick="addMarker();">Añadir al mapa</button>
+			<button id="button_add">Añadir al mapa</button>
+			<button id="button_save">Guardar</button>
+		
 			<br>
-			<input class="watermark" id="input_title" type="text" placeholder="Ponle un titulo y listo!">
-			
-			<br>
-			<br>
-			<br>
-			
-			<div id="map_canvas"></div>
-			
-	</div>
-</div>
-
-</body>
+		</div>
+				
+		<!-- <div class="right_column blueberry">
+		  	<ul class="slides">
+			    <li><img src="img/menu/corrupcion.jpg" /></li>
+			    <li><img src="img/menu/comparte.jpg" /></li>
+			    <li><img src="img/menu/publica.png" /></li>
+			    <li><img src="img/menu/todos.jpg" /></li>
+			    <li><img src="img/menu/dinero.jpg" /></li>			
+			  </ul>
+			  <ul class="pager">
+			    <li><a href="#"><span></span></a></li>
+			    <li><a href="#"><span></span></a></li>
+			    <li><a href="#"><span></span></a></li>
+			    <li><a href="#"><span></span></a></li>
+			  </ul>
+		</div>			 -->
+		
+		<div id="map_canvas"></div>
+		</div>
+		<!-- Footer -->
+		<?php	$this->load->view('footer'); ?>
+	</div>	
+	</body>
 </html>
